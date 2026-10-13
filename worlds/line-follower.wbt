@@ -9,8 +9,8 @@ EXTERNPROTO "../protos/TrackOne.proto"
 WorldInfo {
 }
 Viewpoint {
-  orientation 0.07091286331454617 -0.0380017929223057 -0.9967583606628151 4.122749573530848
-  position 1.0074841816109192 -1.2006843564189609 0.2841198345854022
+  orientation 0.23189141843521896 -0.1287789450530079 -0.964179627127195 4.124786556278672
+  position 1.3959182160540793 -1.8378915716435096 0.775570497295788
 }
 TexturedBackground {
 }
@@ -39,6 +39,7 @@ RectangleArena {
   }
 }
 E-puck {
+  controller "line_follower_controller"
   groundSensorsSlot [
     DistanceSensor {
       translation 0 -0.01 0
