@@ -4,18 +4,39 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/project
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/RectangleArena.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/gctronic/e-puck/protos/E-puck.proto"
+EXTERNPROTO "../protos/TrackOne.proto"
 
 WorldInfo {
 }
 Viewpoint {
-  orientation 0.18114970881946177 0.5147917211375351 -0.8379583920713953 0.7951324264674776
-  position -1.112530436124611 0.9772444385373078 0.5008387410600142
+  orientation 0.07091286331454617 -0.0380017929223057 -0.9967583606628151 4.122749573530848
+  position 1.0074841816109192 -1.2006843564189609 0.2841198345854022
 }
 TexturedBackground {
 }
 TexturedBackgroundLight {
 }
 RectangleArena {
+  floorSize 2 2
+  floorAppearance PBRAppearance {
+    roughness 1
+    roughnessMap ImageTexture {
+      url [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/textures/parquetry/chequered_parquetry_roughness.jpg"
+      ]
+    }
+    metalness 0
+    normalMap ImageTexture {
+      url [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/textures/parquetry/chequered_parquetry_normal.jpg"
+      ]
+    }
+    occlusionMap ImageTexture {
+      url [
+        "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/textures/parquetry/chequered_parquetry_occlusion.jpg"
+      ]
+    }
+  }
 }
 E-puck {
   groundSensorsSlot [
@@ -30,4 +51,8 @@ E-puck {
       type "infra-red"
     }
   ]
+}
+TrackOne {
+  translation 0 0 -0.0075
+  rotation 1 0 0 1.5708
 }
