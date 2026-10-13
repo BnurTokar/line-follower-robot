@@ -3,7 +3,7 @@ from controller import Robot
 def run_robot(robot):    
     # get the time step of the current world.
     timestep = 32
-    max_speed =6.28
+    max_speed = 6.28
     
     # Created motor instances
     left_motor = robot.getDevice('left wheel motor')
@@ -15,16 +15,37 @@ def run_robot(robot):
     right_motor.setPosition(float('inf'))
     right_motor.setVelocity(0.0)
     
+    # Create IR sensor distances
+    left_ir = robot.getDevice('ir1')
+    left_ir.enable(timestep)
+    
+    right_ir = robot.getDevice('ir0')
+    right_ir.enable(timestep)
+    
+    
     # Step simulation
     while robot.step(timestep) != -1:
         
-        left_speed = max_speed
-        right_speed = max_speed
+        # read ir sensors 
+        left_ir_value = left_ir.getValue()
+        right_ir_value = right_ir.getValue()
+        
+        print('left: {} right: {}'.format(left_ir_value, right_ir_value))
+        
+        left_speed = max_speed * 0.25
+        right_speed = max_speed * 0.25
+        
+        if (left_ir_value) and (6 < left_ir_value <15):
+            print("Go left")
+            left_speed = -max_speed  * 0.25
+        elif (right_ir_value) and (6 < right_ir_value <15):
+            print("Go right")
+            right_speed = -max_speed * 0.25
+            
         
         left_motor.setVelocity(left_speed)
         right_motor.setVelocity(right_speed)
-    
-    
+     
     
 
 if __name__ == "__main__":
